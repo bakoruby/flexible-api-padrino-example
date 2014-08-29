@@ -10,6 +10,16 @@ RSpec.configure do |conf|
     c.syntax = :expect
   end
   conf.include FactoryGirl::Syntax::Methods
+  conf.before(:suite) do
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
+  end
+
+  conf.around(:each) do |example|
+    DatabaseCleaner.cleaning do
+      example.run
+    end
+  end
 end
 
 FactoryGirl.definition_file_paths = [

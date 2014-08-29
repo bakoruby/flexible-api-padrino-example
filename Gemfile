@@ -6,6 +6,7 @@ gem 'bcrypt'
 gem 'slim'
 gem 'activerecord', '>= 3.1', :require => 'active_record'
 gem 'pg'
+gem 'rabl'
 
 group :test do
   gem 'rspec'
@@ -13,6 +14,7 @@ group :test do
   gem 'factory_girl'
   gem 'shoulda-matchers', require: false
   gem 'pry'
+  gem 'database_cleaner'
 end
 
 gem 'padrino', '0.12.3'
