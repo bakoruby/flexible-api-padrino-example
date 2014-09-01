@@ -6,6 +6,7 @@ PADRINO_ROOT = File.expand_path('../..', __FILE__) unless defined?(PADRINO_ROOT)
 require 'rubygems' unless defined?(Gem)
 require 'bundler/setup'
 Bundler.require(:default, RACK_ENV)
+Padrino.require_dependencies "#{Padrino.root}/config/initializers/**/*.rb"
 
 ##
 # ## Enable devel logging

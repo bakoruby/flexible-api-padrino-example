@@ -91,12 +91,11 @@ describe 'GET /v1/contacts/:id' do
     get "/v1/contacts/#{contact.id}"
 
     expect(response_json).to eq({
-      'contact' => {
         'name' => contact.name,
         'address' => contact.address,
         'city' => contact.city,
         'state' => contact.state,
-        'zip' => contact.zip }})
+        'zip' => contact.zip })
   end
 
   it 'returns a contact by :id and includes phones' do
@@ -106,7 +105,6 @@ describe 'GET /v1/contacts/:id' do
     get "/v1/contacts/#{contact.id}?includes=phones"
 
     expect(response_json).to eq({
-      'contact' => {
         'name' => contact.name,
         'address' => contact.address,
         'city' => contact.city,
@@ -114,6 +112,6 @@ describe 'GET /v1/contacts/:id' do
         'zip' => contact.zip,
         'phones' => [
           'number' => phone.number
-        ]}})
+        ]})
   end
 end
