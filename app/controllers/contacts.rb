@@ -20,7 +20,7 @@ FlexibleApiPadrinoExample::App.controller do
   end
 
   define_method :sanitized_includes do
-    symbolize_includes.inject([]) do |result, include_param|
+    @sanitized_includes ||= symbolize_includes.inject([]) do |result, include_param|
       result << include_param if Contact.reflect_on_association(include_param)
       result
     end
