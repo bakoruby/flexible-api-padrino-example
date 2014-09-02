@@ -6,7 +6,7 @@ FlexibleApiPadrinoExample::App.controller do
     render 'contacts/index'
   end
 
-  get '/v1/contacts', with: :id, provides: [:json] do
+  get :contact, map: '/v1/contacts/:id', provides: [:json] do
     @options = serializer_includes
     @contact = Contact.eager_load(sanitized_includes).find(params[:id])
     render 'contacts/show'

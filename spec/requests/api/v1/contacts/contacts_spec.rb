@@ -13,12 +13,14 @@ describe 'GET /v1/contacts' do
          'address' => contact.address,
          'city' => contact.city,
          'state' => contact.state,
-         'zip' => contact.zip },
+         'zip' => contact.zip,
+         'href' => "http://example.org/v1/contacts/#{contact.id}"},
          {'name' => contact_two.name,
           'address' => contact_two.address,
           'city' => contact_two.city,
           'state' => contact_two.state,
-          'zip' => contact_two.zip }])
+          'zip' => contact_two.zip,
+         'href' => "http://example.org/v1/contacts/#{contact_two.id}"}])
   end
 
   it 'returns a list of contacts and includes phones' do
@@ -36,6 +38,7 @@ describe 'GET /v1/contacts' do
          'city' => contact.city,
          'state' => contact.state,
          'zip' => contact.zip,
+         'href' => "http://example.org/v1/contacts/#{contact.id}",
          'phones' => [
            {'number' => phone.number}
          ]},
@@ -44,6 +47,7 @@ describe 'GET /v1/contacts' do
           'city' => contact_two.city,
           'state' => contact_two.state,
           'zip' => contact_two.zip,
+         'href' => "http://example.org/v1/contacts/#{contact_two.id}",
           'phones' => [
             {'number' => phone_two.number}
           ]}])
@@ -61,7 +65,8 @@ describe 'GET /v1/contacts' do
          'address' => contact.address,
          'city' => contact.city,
          'state' => contact.state,
-         'zip' => contact.zip }])
+         'zip' => contact.zip,
+         'href' => "http://example.org/v1/contacts/#{contact.id}"}])
   end
 
   it 'returns a list of contacts that matches the search query and includes phones' do
@@ -78,6 +83,7 @@ describe 'GET /v1/contacts' do
          'city' => contact.city,
          'state' => contact.state,
          'zip' => contact.zip,
+         'href' => "http://example.org/v1/contacts/#{contact.id}",
          'phones' => [
            {'number' => phone.number }
          ]}])
@@ -95,7 +101,8 @@ describe 'GET /v1/contacts/:id' do
         'address' => contact.address,
         'city' => contact.city,
         'state' => contact.state,
-        'zip' => contact.zip })
+        'zip' => contact.zip,
+        'href' => "http://example.org/v1/contacts/#{contact.id}" })
   end
 
   it 'returns a contact by :id and includes phones' do
@@ -110,6 +117,7 @@ describe 'GET /v1/contacts/:id' do
         'city' => contact.city,
         'state' => contact.state,
         'zip' => contact.zip,
+        'href' => "http://example.org/v1/contacts/#{contact.id}",
         'phones' => [
           'number' => phone.number
         ]})
